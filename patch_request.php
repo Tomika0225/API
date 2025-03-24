@@ -1,13 +1,13 @@
 <?php
 $url='http://localhost/API_GETPOSTPATCHDELETE\API\api.php';  //api.php url
 
-//létre akarom hozni a következő adatot <- adatbázisba szeretném létrehozni az erősorrást
-$productId=5
+$productId=5;//Frissíteni kívánom az adatot id alapján (amit előzőleg felvettünk)
+
 $data = [
-    'id' =>  $productId,
-    'name' => 'Updated Product Name'
-    'price' => 29.99,
-    'description' => 'Updated product description ' // modosított adat
+    'id' => $productId,
+    'name' => 'Updated Product Name', //új neve
+    'price' => 29.99, //módosított adat
+    'description' => 'Updated product description' //módosított adat
 ];
 
 
@@ -20,13 +20,11 @@ curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PATCH");
 curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
 curl_setopt($ch, CURLOPT_HTTPHEADER, ['Content-Type: application/json']);
 
-//kérés végrehajtás
+//Végrehajtuk a kérést
 $response=curl_exec($ch);
 
-//cURL session lezárás
+//Lezárása acURL-nek
 curl_close($ch);
 
-//válasz (eredmény kiírás)
+//Válasz kiírás
 echo $response;
-
-?>
