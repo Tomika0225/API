@@ -39,6 +39,11 @@ function connectDB(){
             die("Query Failed" . $err->getMessage());    
         }
     }
-}
+
+    function closeDB()
+    {
+        $this->conn=null;
+    }
+}   
 
 ?>

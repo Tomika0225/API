@@ -49,4 +49,4 @@ switch($method)
         echo json_encode(["message" => "Methos not supported"]);
         break;
 
-}
+}   
